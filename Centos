@@ -1,4 +1,5 @@
 
+Refer to the website for Java and jenkins installation
 https://www.digitalocean.com/community/tutorials/how-to-set-up-jenkins-for-continuous-development-integration-on-centos-7
 
 Java and Jenkins installation
@@ -19,9 +20,9 @@ sudo systemctl status jenkins.service
 
 after this use the ip in the browser along with 8080. this will give a path in which the first scret key will be stored
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+Paste the password in the appropriate path and create a new user & password in the portal shown.
 
-
-Maven
+Maven Installation
 sudo cd /usr/local/src
 
 copy the new link of maven Binary tar.gz archive
@@ -67,3 +68,20 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 Git installation
 sudo yum install -y git
+
+
+Jenkins Configuration
+Manage Jenkins -> Global Tool configuration
+  1. JDK - This path can be found from /etc/profile.d/java.sh
+    Name: Java
+    Path: /opt/jdk-11.0.2
+    
+  2. GIT - This path can be found using the command 'which git'
+    Name: GIT
+    Path: /usr/bin/git
+
+  3. Maven
+    Name: Maven - This path can be found from /etc/profile.d/maven.sh
+    Path: /usr/local/src/apache-maven
+
+    
