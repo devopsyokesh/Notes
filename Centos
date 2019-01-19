@@ -1,0 +1,69 @@
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-jenkins-for-continuous-development-integration-on-centos-7
+
+Java and Jenkins installation
+
+sudo yum -y install java
+
+yum whatprovides service
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+
+sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+
+sudo yum install jenkins
+
+sudo systemctl start jenkins.service
+
+sudo systemctl status jenkins.service
+
+after this use the ip in the browser along with 8080. this will give a path in which the first scret key will be stored
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+Maven
+sudo cd /usr/local/src
+
+copy the new link of maven Binary tar.gz archive
+sudo wget http://mirrors.estointernet.in/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+
+sudo tar -xf apache-maven-3.6.0-bin.tar.gz
+
+sudo rm -f apache-maven-3.6.0-bin.tar.gz
+
+mv apache-maven-3.6.0/ apache-maven/
+
+cd /etc/profile.d/
+sudo vim maven.sh
+# Apache Maven Environment Variables
+# MAVEN_HOME for Maven 1 - M2_HOME for Maven 2
+export M2_HOME=/usr/local/src/apache-maven
+export PATH=${M2_HOME}/bin:${PATH}
+
+chmod +x maven.sh
+source /etc/profile.d/maven.sh
+
+mvn --version
+
+JDK Installation
+
+
+tar -xvf jdk-11.0.2_linux-x64_bin.tar.gz
+
+sudo alternatives --install /usr/bin/jar jar /opt/jdk-11.0.2/bin/jar 1
+sudo alternatives --install /usr/bin/javac javac /opt/jdk-11.0.2/bin/javac 1
+sudo alternatives --set jar /opt/jdk-11.0.2/bin/jar
+sudo alternatives --set javac /opt/jdk-11.0.2/bin/javac
+
+
+
+cd /etc/profile.d/
+vi java.sh
+export JRE_HOME=/opt/jdk-11.0.2/jre
+export PATH=$PATH:$JRE_HOME/bin
+export JAVA_HOME=/opt/jdk-11.0.2
+export JAVA_PATH=$JAVA_HOME
+export PATH=$PATH:$JAVA_HOME/bin
+
+Git installation
+sudo yum install git
