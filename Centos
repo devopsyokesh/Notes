@@ -32,7 +32,7 @@ sudo tar -xf apache-maven-3.6.0-bin.tar.gz
 
 sudo rm -f apache-maven-3.6.0-bin.tar.gz
 
-mv apache-maven-3.6.0/ apache-maven/
+sudo mv apache-maven-3.6.0/ apache-maven/
 
 cd /etc/profile.d/
 sudo vim maven.sh
@@ -48,6 +48,7 @@ mvn --version
 
 JDK Installation
 
+sudo mv jdk-11.0.2_linux-x64_bin.tar.gz /opt
 
 tar -xvf jdk-11.0.2_linux-x64_bin.tar.gz
 
