@@ -23,6 +23,10 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 Paste the password in the appropriate path and create a new user & password in the portal shown.
 
 Maven Installation
+sudo cd /usr/local/src 
+
+//make sure the terminal go inside the src directory otherwise use below command
+sudo su -
 sudo cd /usr/local/src
 
 copy the new link of maven Binary tar.gz archive
@@ -42,6 +46,7 @@ export M2_HOME=/usr/local/src/apache-maven
 export PATH=${M2_HOME}/bin:${PATH}
 
 chmod +x maven.sh
+chmod +x java.sh
 source /etc/profile.d/maven.sh
 
 mvn --version
@@ -49,6 +54,10 @@ mvn --version
 JDK Installation
 
 sudo mv jdk-11.0.2_linux-x64_bin.tar.gz /opt
+
+cd /opt
+
+ls
 
 tar -xvf jdk-11.0.2_linux-x64_bin.tar.gz
 
