@@ -50,6 +50,10 @@ JDK Installation
 
 sudo mv jdk-11.0.2_linux-x64_bin.tar.gz /opt
 
+cd /opt
+
+ls
+
 tar -xvf jdk-11.0.2_linux-x64_bin.tar.gz
 
 sudo alternatives --install /usr/bin/jar jar /opt/jdk-11.0.2/bin/jar 1
